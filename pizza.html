@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pizza Preparation Order</title>
+  <link rel="stylesheet" href="pizzastyle.css">
+  <link rel="script" href="pizzascript.js">
+</head>
+<body>
+  <h1>Pizza Preparation Order</h1>
+
+  <div class="buttons">
+    <button onclick="startProcess('cheese')">Cheese Pizza</button>
+    <button onclick="startProcess('pepperoni')">Pepperoni Pizza</button>
+    <button onclick="startProcess('veggie')">Veggie Pizza</button>
+  </div>
+
+  <div id="cheese" class="pizza">
+    <h2>🍕 Cheese Pizza</h2>
+    <div class="step">🍞 Tossing dough... <strong>Thin Crust</strong></div>
+    <div class="step">🍅 Adding sauce... <strong>Tomato Basil</strong></div>
+    <div class="step">🧀 Adding toppings:
+      <ul><li>Mozzarella</li><li>Parmesan</li><li>Basil</li></ul>
+    </div>
+    <div class="step">🔥 Baking Cheese Pizza in 30 mins</div>
+    <div class="step">🔪 Cutting Cheese Pizza</div>
+    <div class="step">📦 Boxing Cheese Pizza</div>
+  </div>
+
+  <div id="pepperoni" class="pizza">
+    <h2>🍕 Pepperoni Pizza</h2>
+    <div class="step">🍞 Tossing dough... <strong>Hand-Tossed</strong></div>
+    <div class="step">🍅 Adding sauce... <strong>Spicy Marinara</strong></div>
+    <div class="step">🧀 Adding toppings:
+      <ul><li>Pepperoni</li><li>Mozzarella</li><li>Oregano</li></ul>
+    </div>
+    <div class="step">🔥 Baking Pepperoni Pizza in 30 mins</div>
+    <div class="step">🔪 Cutting Pepperoni Pizza</div>
+    <div class="step">📦 Boxing Pepperoni Pizza</div>
+  </div>
+
+  <div id="veggie" class="pizza">
+    <h2>🍕 Veggie Pizza</h2>
+    <div class="step">🍞 Tossing dough... <strong>Whole Wheat</strong></div>
+    <div class="step">🍅 Adding sauce... <strong>Pesto</strong></div>
+    <div class="step">🧀 Adding toppings:
+      <ul ><li>Bell Peppers</li><li>Olives</li><li>Mushrooms</li><li>Red Onions</li></ul>
+    </div>
+    <div class="step">🔥 Baking Veggie Pizza in 30 mins</div>
+    <div class="step">🔪 Cutting Veggie Pizza</div>
+    <div class="step">📦 Boxing Veggie Pizza</div>
+  </div>
+
+  <script src="pizzascript.js"></script>
+</body>
+</html>
