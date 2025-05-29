@@ -30,3 +30,8 @@ app.post('/done', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server chạy tại http://localhost:${PORT}`);
 });
+app.post('/cancel', (req, res) => {
+    const { pizzaType } = req.body;
+    console.log(`⛔ [CANCEL] Đã hủy làm pizza: ${pizzaType}`);
+    res.json({ message: `Đã hủy pizza ${pizzaType}` });
+  });
