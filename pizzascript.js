@@ -8,6 +8,7 @@ function startProcess(pizzaId) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ pizzaType: currentPizza })
     });
+    window.alert("Đổi loại pizza từ từ thôi");
   }
 
   currentPizza = pizzaId; // cập nhật pizza hiện tại
@@ -53,6 +54,6 @@ function startProcess(pizzaId) {
         }, 1000);
       }
 
-    }, 2000 * index);
+    }, 500 * index);
   });
 }
