@@ -1,0 +1,38 @@
+2025-06-11T07:32:29.204Z 🍕 [ORDER] veggie
+2025-06-11T07:32:29.213Z ✅ [veggie] 🍞 Tossing dough... Whole Wheat
+2025-06-11T07:32:32.618Z 🍕 [ORDER] veggie
+2025-06-11T07:32:32.626Z ✅ [veggie] 🍞 Tossing dough... Whole Wheat
+2025-06-11T07:32:34.445Z 🍕 [ORDER] veggie
+2025-06-11T07:32:34.451Z ✅ [veggie] 🍞 Tossing dough... Whole Wheat
+2025-06-11T07:32:35.617Z 🍕 [ORDER] pepperoni
+2025-06-11T07:32:35.623Z ✅ [pepperoni] 🍞 Tossing dough... Hand-Tossed
+2025-06-11T07:32:37.264Z 🍕 [ORDER] cheese
+2025-06-11T07:32:37.270Z ✅ [cheese] 🍞 Tossing dough... Thin Crust
+2025-06-11T07:35:39.406Z 🍕 [ORDER] veggie
+2025-06-11T07:35:39.424Z ✅ [veggie] 🍞 Tossing dough... Whole Wheat
+2025-06-11T07:37:02.941Z 🍕 [ORDER] cheese
+2025-06-11T07:37:02.948Z ✅ [cheese] 🍞 Tossing dough... Thin Crust
+2025-06-11T07:37:23.799Z 🍕 [ORDER] veggie
+2025-06-11T07:37:23.804Z ✅ [veggie] 🍞 Tossing dough... Whole Wheat
+2025-06-11T07:37:25.444Z 🍕 [ORDER] cheese
+2025-06-11T07:37:25.449Z ✅ [cheese] 🍞 Tossing dough... Thin Crust
+2025-06-11T07:39:39.668Z 🍕 [ORDER] veggie
+2025-06-11T07:39:39.675Z ✅ [veggie] 🍞 Tossing dough... Whole Wheat
+2025-06-11T07:39:53.083Z 🍕 [ORDER] veggie
+2025-06-11T07:39:53.088Z ✅ [veggie] 🍞 Tossing dough... Whole Wheat
+2025-06-11T07:39:58.414Z 🍕 [ORDER] veggie
+2025-06-11T07:39:58.418Z ✅ [veggie] 🍞 Tossing dough... Whole Wheat
+2025-06-11T07:40:02.935Z 🍕 [ORDER] veggie
+2025-06-11T07:40:02.941Z ✅ [veggie] 🍞 Tossing dough... Whole Wheat
+2025-06-11T07:44:36.437Z 🍕 [ORDER] cheese
+2025-06-11T07:44:36.441Z ✅ [cheese] 🍞 Tossing dough... Thin Crust
+2025-06-11T07:44:37.965Z 🍕 [ORDER] pepperoni
+2025-06-11T07:44:37.971Z ✅ [pepperoni] 🍞 Tossing dough... Hand-Tossed
+2025-06-11T08:21:50.738Z 🍕 [ORDER] cheese
+2025-06-11T08:21:50.750Z ✅ [cheese] 🍞 Tossing dough... Thin Crust
+2025-06-11T08:21:52.582Z 🍕 [ORDER] cheese
+2025-06-11T08:21:52.589Z ✅ [cheese] 🍞 Tossing dough... Thin Crust
+2025-06-11T08:21:54.069Z 🍕 [ORDER] cheese
+2025-06-11T08:21:54.079Z ✅ [cheese] 🍞 Tossing dough... Thin Crust
+2025-06-11T08:23:51.631Z 🍕 [ORDER] Khách đã chọn: cheese
+2025-06-11T08:23:51.648Z ✅ [cheese] Hoàn thành bước: 🍞 Tossing dough... Thin Crust

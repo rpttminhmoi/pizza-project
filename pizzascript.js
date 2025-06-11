@@ -1,59 +1,91 @@
-let currentPizza = null; // lưu pizza đang xử lý
+let currentPizza = null;
+let timers = [];
 
 function startProcess(pizzaId) {
-  // Nếu đang làm pizza khác, báo server hủy
   if (currentPizza && currentPizza !== pizzaId) {
-    fetch('http://localhost:3000/cancel', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ pizzaType: currentPizza })
-    });
-    window.alert("Đổi loại pizza từ từ thôi");
+    if (!confirm(`Bạn đang làm ${currentPizza}. Hủy để chuyển sang ${pizzaId}?`)) return;
+    cancelCurrentOrder(() => beginPizzaFlow(pizzaId));
+    return;
   }
+  if (!currentPizza) beginPizzaFlow(pizzaId);
+}
 
-  currentPizza = pizzaId; // cập nhật pizza hiện tại
+function beginPizzaFlow(pizzaId) {
+  clearAllTimers();
+  resetAllPizzas();
 
-  // Ẩn tất cả
-  document.querySelectorAll('.pizza').forEach(p => {
-    p.style.display = 'none';
-    p.querySelectorAll('.step').forEach(s => s.classList.remove('visible'));
-  });
+  currentPizza = pizzaId;
+  const pizzaEl = document.getElementById(pizzaId);
+  pizzaEl.style.display = 'block';
+  pizzaEl.querySelector('.cancelBtn').disabled = false;
 
-  const pizza = document.getElementById(pizzaId);
-  pizza.style.display = 'block';
-  const steps = pizza.querySelectorAll('.step');
-
-  // Gửi lên server: khách đã chọn pizza mới
   fetch('http://localhost:3000/order', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ pizzaType: pizzaId })
-  });
+  }).catch(console.error);
 
-  steps.forEach((step, index) => {
-    setTimeout(() => {
-      step.classList.add('visible');
-
-      // Gửi tiến trình từng bước
+  const steps = pizzaEl.querySelectorAll('.step');
+  steps.forEach((stepEl, idx) => {
+    const t = setTimeout(() => {
+      stepEl.classList.add('visible');
       fetch('http://localhost:3000/step', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           pizzaType: pizzaId,
-          step: step.innerText.trim()
+          step: stepEl.textContent.trim()
         })
-      });
+      }).catch(console.error);
 
-      if (index === steps.length - 1) {
-        setTimeout(() => {
+      if (idx === steps.length - 1) {
+        const doneT = setTimeout(() => {
           fetch('http://localhost:3000/done', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ pizzaType: pizzaId })
-          });
+          }).catch(console.error)
+            .finally(() => finishFlow());
         }, 1000);
+        timers.push(doneT);
       }
-
-    }, 500 * index);
+    }, idx * 500);
+    timers.push(t);
   });
+}
+
+function cancelCurrentOrder(callback) {
+  if (!currentPizza) {
+    if (callback) callback();
+    return;
+  }
+  fetch('http://localhost:3000/cancel', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ pizzaType: currentPizza })
+  }).catch(console.error)
+    .finally(() => {
+      finishFlow();
+      if (callback) callback();
+    });
+}
+
+function finishFlow() {
+  clearAllTimers();
+  resetAllPizzas();
+  currentPizza = null;
+}
+
+function resetAllPizzas() {
+  document.querySelectorAll('.pizza').forEach(p => {
+    p.style.display = 'none';
+    p.querySelectorAll('.step').forEach(s => s.classList.remove('visible'));
+    const cancelBtn = p.querySelector('.cancelBtn');
+    if (cancelBtn) cancelBtn.disabled = true;
+  });
+}
+
+function clearAllTimers() {
+  timers.forEach(id => clearTimeout(id));
+  timers = [];
 }

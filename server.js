@@ -1,37 +1,46 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
+
 const app = express();
 const PORT = 3000;
 
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
-// Khi khách chọn pizza
+let currentOrder = null;
+
 app.post('/order', (req, res) => {
   const { pizzaType } = req.body;
-  console.log(`🍕 [ORDER] Khách đã chọn: ${pizzaType}`);
-  res.json({ message: `Đã nhận đơn: ${pizzaType}` });
+  console.log(`🍕 Order received: ${pizzaType}`);
+  currentOrder = pizzaType;
+  res.sendStatus(200);
 });
 
-// Khi hoàn thành 1 bước
 app.post('/step', (req, res) => {
   const { pizzaType, step } = req.body;
-  console.log(`✅ [${pizzaType}] Hoàn thành bước: ${step}`);
-  res.json({ message: `Đã nhận bước: ${step}` });
+  console.log(`➡️ [${pizzaType}] Step: ${step}`);
+  res.sendStatus(200);
 });
 
-// Khi pizza hoàn tất
+app.post('/cancel', (req, res) => {
+  const { pizzaType } = req.body;
+  console.log(`❌ Order cancelled: ${pizzaType}`);
+  if (currentOrder === pizzaType) {
+    currentOrder = null;
+  }
+  res.sendStatus(200);
+});
+
 app.post('/done', (req, res) => {
   const { pizzaType } = req.body;
-  console.log(`🎉 [${pizzaType}] Đã hoàn thành toàn bộ!`);
-  res.json({ message: `Pizza ${pizzaType} đã hoàn tất!` });
+  console.log(`✅ ${pizzaType} pizza is done!`);
+  if (currentOrder === pizzaType) {
+    currentOrder = null;
+  }
+  res.json({ message: `${pizzaType} pizza completed.` });
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server chạy tại http://localhost:${PORT}`);
+  console.log(`🚀 Pizza server is running at http://localhost:${PORT}`);
 });
-app.post('/cancel', (req, res) => {
-    const { pizzaType } = req.body;
-    console.log(`⛔ [CANCEL] Đã hủy làm pizza: ${pizzaType}`);
-    res.json({ message: `Đã hủy pizza ${pizzaType}` });
-  });

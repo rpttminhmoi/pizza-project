@@ -1,55 +1,65 @@
 body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background-color: #f9f9f9;
-    line-height: 1.6;
-  }
-  
-  h1 {
-    color: #d35400;
-  }
-  
-  .buttons {
-    margin-bottom: 30px;
-  }
-  
-  .buttons button {
-    background-color: rgb(255, 209, 124);
-    color:#77752a;
-    
-    margin-right: 10px;
-    padding: 10px 20px;
-    font-size: 20px;
-    border-radius: 12px;
-    border-color: rgb(255, 209, 124);
-    cursor: pointer;
-    box-shadow: none;
-  }
-  
-  .pizza {
-    display: none;
-    margin-bottom: 40px;
-    padding: 15px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  #cheese h2{
-    color: rgb(113, 113, 18);
-  }
-  #pepperoni h2{
-    color:#d35400;
-  }
-  #veggie h2{
-    color:rgb(61, 137, 44);
-  }
-  .step {
-    margin-bottom: 10px;
-    opacity: 0;
-    transition: opacity 0.5s ease-in;
-  }
-  
-  .step.visible {
-    opacity: 1;
-  }
-  
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f9f9f9;
+  line-height: 1.6;
+}
+
+h1 {
+  color: #d35400;
+}
+
+.buttons {
+  margin-bottom: 30px;
+}
+
+.buttons button {
+  background-color: rgb(255, 209, 124);
+  color: #77752a;
+  margin-right: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 12px;
+  border: 2px solid rgb(255, 209, 124);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancelBtn {
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: not-allowed;
+  margin-top: 10px;
+}
+
+.cancelBtn:enabled {
+  background-color: #e74c3c;
+  cursor: pointer;
+}
+
+.cancelBtn:enabled:hover {
+  background-color: #c0392b;
+}
+
+.pizza {
+  display: none;
+  margin-bottom: 40px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.step {
+  opacity: 0;
+  margin-bottom: 10px;
+  transition: opacity 0.5s ease-in;
+}
+
+.step.visible {
+  opacity: 1;
+}
